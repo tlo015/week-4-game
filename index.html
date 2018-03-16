@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Crystal COllector</title>
 </head>
 
 <body>
-    <header>
+
+    <header class="jumbotron">
         <h1> Crystals Collector </h1>
     </header>
 
@@ -17,9 +19,9 @@
         <div class="row">
             <section class="col-md-6" id="text-body">
                 <p>You will be given a random number at the start of game.</p>
-                <p> There are four crystals below. By clicking the crystal you will add a specific amount of points to your total score.</p>
+                <p> There are four Pokemon below. By clicking the Pokemon you will add a specific amount of points to your total score.</p>
                 <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
-                <p>The value of each crystal is hidden from you until you click on it.</p>
+                <p>The value of each Pokemon is hidden from you until you click on it.</p>
                 <p>Each time the game starts, the game will change the values of each crystal. </p>
             </section>
 
@@ -34,57 +36,51 @@
                     <div class="losses col-md-6" id ="losses"></div>
                 </div>
 
-                <div class="row" id="gemImage">
-                    <img class="col-md-3 red" id="red" src="images/redgem.jpg">
-                    <img class="col-md-3 blue" src="images/bluegem.jpg">
-                    <img class="col-md-3 yellow" src="images/yellowgem.jpg">
-                    <img class="col-md-3 green" src="images/greengem.jpg">
+                <div class="row" id="pokemonImage">
+                    <img class="col-md-3 green" src="assets/images/green.png">
+                    <img class="col-md-3 red" src="assets/images/red.png">
+                    <img class="col-md-3 blue" src="assets/images/blue.png">
+                    <img class="col-md-3 yellow" src="assets/images/yellow.png">
                 </div>
             </sideBar>
     </div>
     </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-
-//generate random number between 19-120, print to html
-var random = Math.floor(Math.random() * 120)+19;
-    console.log ("display num: ", random);
-    $("#randomNum").text(random);
-
-//counter to keep track of the clicked numbers #clickTotal
-var counter = 0;
-
-//assign each img with a hidden number between 1-12
-var redGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Red gem: ", redGem);
-var blueGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Blue gem: ", blueGem);
-var yellowGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Yellow gem: ", yellowGem);
-var greenGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Green gem: ", greenGem);
-
-//generate img as buttons for 'click' event listener
-$("#gemImage").on("click", "red", function() {
-    redGem = parseInt(redGem);
-    alert (redGem);
-});
-
-//upon click print value to screen
-
-//upon additional clicks, add values together
-
-//if score = random number wins
-
-//else losses
-
-//restart game with ne random numbers and hidden numbers
-
- 
-
-</script>
+    <script>
+    //generate random number between 19-120, print to html
+    var random = (Math.floor(Math.random() * 111)+19);
+        console.log ("display num: ", random);
+        $("#randomNum").text(random);
+    
+    //counter to keep track of the clicked numbers #clickTotal
+    var counter = 0;
+    
+    //assign each img with a hidden number between 1-12
+    var redPkmn = (Math.floor(Math.random() * 12)+1);
+        console.log ("Red pokemon: ", redPkmn);
+    var bluePkmn = (Math.floor(Math.random() * 12)+1);
+        console.log ("Blue pokemon: ", bluePkmn);
+    var yellowPkmn = (Math.floor(Math.random() * 12)+1);
+        console.log ("Yellow pokemon: ", yellowPkmn);
+    var greenPkmn = (Math.floor(Math.random() * 12)+1);
+        console.log ("Green pokemon: ", greenPkmn);
+    
+    //generate img as buttons for 'click' event listener
+    $("#gemImage").on("click", "red", function() {
+        redGem = parseInt(redGem);
+        alert (redGem);
+    });
+    
+    //upon click print value to screen
+    
+    //upon additional clicks, add values together
+    
+    //if score = random number wins
+    
+    //else losses
+    
+    //restart game with ne random numbers and hidden numbers
+    </script>
 
 </body>
 </html>
