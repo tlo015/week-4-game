@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Crystal COllector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+  
+    <title>Crystal Collector</title>
 </head>
 
 <body>
 
-    <header class="jumbotron">
+    <header class=" container jumbotron">
         <h1> Crystals Collector </h1>
     </header>
 
@@ -19,68 +20,88 @@
         <div class="row">
             <section class="col-md-6" id="text-body">
                 <p>You will be given a random number at the start of game.</p>
-                <p> There are four Pokemon below. By clicking the Pokemon you will add a specific amount of points to your total score.</p>
-                <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
-                <p>The value of each Pokemon is hidden from you until you click on it.</p>
-                <p>Each time the game starts, the game will change the values of each crystal. </p>
+                <p> There are four Pokemon below. By clicking the Pokemon you will add their relative level to your total score.</p>
+                <p>You win the game by matching your total level to the random number, you lose the game if your level goes above the random number.</p>
+                <p>The level of each Pokemon is hidden from you until you click on it.</p>
+                <p>Each time the game starts, the game will change the level of each Pokemon. </p>
             </section>
 
             <sideBar class="col-md-6">
                 <div class="row">
-                    <div class="randomNum col-md-6"><span id="randomNum"></span></div>
-                    <div class="clickTotal col-md-6"><span id="clickTotal"></span></div>
-                </div>
-
-                <div class="row" id="pointCounter">
-                    <div class="wins col-md-6" id="wins"></div>
-                    <div class="losses col-md-6" id ="losses"></div>
+                    <div class="randomNum col-md-6">Number to Match: <span id="randomNum"></span></div>
+                    <div class="clickTotal col-md-6">Total: <span id="clickTotal"></span></div>
                 </div>
 
                 <div class="row" id="pokemonImage">
-                    <img class="col-md-3 green" src="assets/images/green.png">
-                    <img class="col-md-3 red" src="assets/images/red.png">
-                    <img class="col-md-3 blue" src="assets/images/blue.png">
-                    <img class="col-md-3 yellow" src="assets/images/yellow.png">
+                        <img class="col-md-3 green" src="assets/images/green.png">
+                        <img class="col-md-3 red" src="assets/images/red.png">
+                        <img class="col-md-3 blue" src="assets/images/blue.png">
+                        <img class="col-md-3 yellow" src="assets/images/yellow.png">
                 </div>
+
+                <div class="row" id="pointCounter">
+                    <div class="wins col-md-6" id="wins">Wins: </div>
+                    <div class="losses col-md-6" id ="losses">Losses: </div>
+                </div>
+
+
             </sideBar>
     </div>
     </div>
 
-    <script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    
     //generate random number between 19-120, print to html
-    var random = (Math.floor(Math.random() * 111)+19);
+    var random = (Math.floor(Math.random() * 101) +19);
         console.log ("display num: ", random);
         $("#randomNum").text(random);
     
-    //counter to keep track of the clicked numbers #clickTotal
-    var counter = 0;
-    
     //assign each img with a hidden number between 1-12
+    var greenPkmn = (Math.floor(Math.random() * 12)+1);
+        console.log ("Green pokemon: ", greenPkmn);
     var redPkmn = (Math.floor(Math.random() * 12)+1);
         console.log ("Red pokemon: ", redPkmn);
     var bluePkmn = (Math.floor(Math.random() * 12)+1);
         console.log ("Blue pokemon: ", bluePkmn);
     var yellowPkmn = (Math.floor(Math.random() * 12)+1);
         console.log ("Yellow pokemon: ", yellowPkmn);
-    var greenPkmn = (Math.floor(Math.random() * 12)+1);
-        console.log ("Green pokemon: ", greenPkmn);
     
-    //generate img as buttons for 'click' event listener
-    $("#gemImage").on("click", "red", function() {
-        redGem = parseInt(redGem);
-        alert (redGem);
+    //'click' event listener on images #pokemonImage
+    $(".green").on("click", function() {
+        level = parseInt(greenPkmn);
+        console.log ("Green click: ", level);
+    });
+    $(".red").on("click", function() {
+        level = parseInt(redPkmn);
+        console.log ("Red click: ",level);
+    });    
+    $(".blue").on("click", function() {
+        level = parseInt(bluePkmn);
+        console.log ("Blue click: ",level);
+    });    
+    $(".yellow").on("click", function() {
+        level = parseInt(yellowPkmn);
+        console.log ("Yellow click: ",level);
     });
     
+    //counter to keep track of the clicked numbers #clickTotal
+    var counter = 0;
+    $("#clickTotal").text(counter);
+
     //upon click print value to screen
+    
     
     //upon additional clicks, add values together
     
-    //if score = random number wins
+    //if score = random number wins #wins
     
-    //else losses
+    //else losses #losses
     
-    //restart game with ne random numbers and hidden numbers
-    </script>
+    //restart game with new random numbers and hidden numbers
+
+
+</script>
 
 </body>
 </html>
