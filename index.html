@@ -40,8 +40,8 @@
                 </div>
 
                 <div class="row" id="pointCounter">
-                    <div class="wins col-md-6" id="wins">Wins: </div>
-                    <div class="losses col-md-6" id ="losses">Losses: </div>
+                    <div class="col-md-6">Wins: <span id="wins"></span></div>
+                    <div class="col-md-6">Losses: <span id ="losses"></span></div>
                 </div>
 
 
@@ -52,11 +52,21 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
     
-    //generate random number between 19-120, print to html
-    var random = (Math.floor(Math.random() * 101) +19);
-        console.log ("display num: ", random);
-        $("#randomNum").text(random);
+    //initialise game stats
+    //counter to keep track of the clicked numbers #clickTotal
+    //generate random number between 19-120, print to html   
+    var counter = 0;
+    var winsCount = 0  
+    var lossesCount = 0
+
     
+    $("#wins").text(winsCount);
+    $("#losses").text(lossesCount);
+
+    var random = (Math.floor(Math.random() * 102) +19);
+        console.log ("display num: ", random); 
+    $("#randomNum").text(random);
+
     //assign each img with a hidden number between 1-12
     var greenPkmn = (Math.floor(Math.random() * 12)+1);
         console.log ("Green pokemon: ", greenPkmn);
@@ -70,34 +80,44 @@
     //'click' event listener on images #pokemonImage
     $(".green").on("click", function() {
         level = parseInt(greenPkmn);
-        console.log ("Green click: ", level);
+            console.log ("Green click: ", level);
+        counter = counter + level;
+        $("#clickTotal").text(counter);
     });
+    
     $(".red").on("click", function() {
         level = parseInt(redPkmn);
-        console.log ("Red click: ",level);
+            console.log ("Red click: ",level);
+        counter = counter + level;
+        $("#clickTotal").text(counter);
     });    
+    
     $(".blue").on("click", function() {
         level = parseInt(bluePkmn);
-        console.log ("Blue click: ",level);
+            console.log ("Blue click: ",level);
+        counter = counter + level;
+        $("#clickTotal").text(counter);
     });    
+    
     $(".yellow").on("click", function() {
         level = parseInt(yellowPkmn);
-        console.log ("Yellow click: ",level);
+            console.log ("Yellow click: ",level);
+        counter = counter + level;
+        $("#clickTotal").text(counter);
     });
     
-    //counter to keep track of the clicked numbers #clickTotal
-    var counter = 0;
-    $("#clickTotal").text(counter);
-
     //upon click print value to screen
     
+
     
     //upon additional clicks, add values together
     
     //if score = random number wins #wins
+
     
     //else losses #losses
-    
+
+
     //restart game with new random numbers and hidden numbers
 
 
