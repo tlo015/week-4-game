@@ -32,6 +32,8 @@
                     <div class="clickTotal col-md-6">Total: <span id="clickTotal"></span></div>
                 </div>
 
+                <div class="row"><span id="winOrLose"></span></div>
+
                 <div class="row" id="pokemonImage">
                         <img class="col-md-3 green" src="assets/images/green.png">
                         <img class="col-md-3 red" src="assets/images/red.png">
@@ -54,12 +56,13 @@
     
     //initialise game stats
     //counter to keep track of the clicked numbers #clickTotal
-    //generate random number between 19-120, print to html   
+    //generate random number between 19-120, print to html  
+    var imgValue = []; 
     var counter = 0;
     var winsCount = 0  
     var lossesCount = 0
 
-    
+    $("#randomNum").text(counter);
     $("#wins").text(winsCount);
     $("#losses").text(lossesCount);
 
@@ -68,57 +71,103 @@
     $("#randomNum").text(random);
 
     //assign each img with a hidden number between 1-12
-    var greenPkmn = (Math.floor(Math.random() * 12)+1);
-        console.log ("Green pokemon: ", greenPkmn);
-    var redPkmn = (Math.floor(Math.random() * 12)+1);
-        console.log ("Red pokemon: ", redPkmn);
-    var bluePkmn = (Math.floor(Math.random() * 12)+1);
-        console.log ("Blue pokemon: ", bluePkmn);
-    var yellowPkmn = (Math.floor(Math.random() * 12)+1);
-        console.log ("Yellow pokemon: ", yellowPkmn);
+    // var greenPkmn = (Math.floor(Math.random() * 12)+1);
+    //     console.log ("Green pokemon: ", greenPkmn);
+    // var redPkmn = (Math.floor(Math.random() * 12)+1);
+    //     console.log ("Red pokemon: ", redPkmn);
+    // var bluePkmn = (Math.floor(Math.random() * 12)+1);
+    //     console.log ("Blue pokemon: ", bluePkmn);
+    // var yellowPkmn = (Math.floor(Math.random() * 12)+1);
+    //     console.log ("Yellow pokemon: ", yellowPkmn);
+    function randomPkmnNum() {
+        for (var i=0; i<4; i++) {
+            var num = (Math.floor(Math.random() *11) +1);
+            imgValue.push(num);
+        }
+        console.log (imgValue);
+    }
+    randomPkmnNum();
+
+    //restart game with new random numbers and hidden numbers
+    function youWon(){
+        alert ("You Win!!")
+        winsCount++;
+        $("#wins").text(winsCount);
+        reset();
+    }
+
+    function youLose(){
+        alert ("You Lose!!")
+        lossesCount++;
+        $("#losses").text(lossesCount);
+        reset();
+    }
     
     //'click' event listener on images #pokemonImage
+    //upon click print value to screen
+    //upon additional clicks, add values together
+    //if score = random number wins #wins
+    //else losses #losses
     $(".green").on("click", function() {
-        level = parseInt(greenPkmn);
-            console.log ("Green click: ", level);
-        counter = counter + level;
+        // level = parseInt(imgValue[0]);
+            console.log ("Green click: ", imgValue[0]);
+        counter = counter + imgValue[0];
+            console.log(counter);
         $("#clickTotal").text(counter);
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
     });
     
     $(".red").on("click", function() {
-        level = parseInt(redPkmn);
-            console.log ("Red click: ",level);
-        counter = counter + level;
-        $("#clickTotal").text(counter);
-    });    
+        // level = parseInt(redPkmn);
+            console.log ("Red click: ",imgValue[1]);
+        counter = counter + imgValue[1];
+            console.log(counter);
+        $("#clickTotal").text(counter);  
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
+    });  
     
     $(".blue").on("click", function() {
-        level = parseInt(bluePkmn);
-            console.log ("Blue click: ",level);
-        counter = counter + level;
+        // level = parseInt(bluePkmn);
+            console.log ("Blue click: ",imgValue[2]);
+        counter = counter + imgValue[2];
         $("#clickTotal").text(counter);
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
     });    
     
     $(".yellow").on("click", function() {
-        level = parseInt(yellowPkmn);
-            console.log ("Yellow click: ",level);
-        counter = counter + level;
+        // level = parseInt(yellowPkmn);
+            console.log ("Yellow click: ",imgValue[3]);
+        counter = counter + imgValue[3];
         $("#clickTotal").text(counter);
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
     });
     
-    //upon click print value to screen
-    
-
-    
-    //upon additional clicks, add values together
-    
-    //if score = random number wins #wins
-
-    
-    //else losses #losses
-
-
-    //restart game with new random numbers and hidden numbers
+    //reset
+        function reset() {
+            random = (Math.floor(Math.random() * 102) +19);
+                $("#randomNum").text(random);
+            imgValue= [];
+            randomPkmnNum();
+            counter = 0;
+            $("#clickTotal").text(counter);
+            $("#winOrLose").text("");
+        }
 
 
 </script>
