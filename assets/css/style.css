@@ -68,6 +68,19 @@
     text-align: center;
 }
 
+/* You win or You lose */
+#win-or-lose{
+    margin-top: 20px;
+    text-align: center;
+    }
+
+#win-lose-border{
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;  
+    padding: 10px 0px; 
+}
+
 /* Pictures */
 .green, .red, .blue, .yellow{
     width: 100%;
@@ -75,7 +88,7 @@
 }
 
 #pokemonImage{
-margin-top: 30px;
+margin-top: 20px;
 }
 
 
@@ -88,5 +101,5 @@ margin-top: 30px;
     border-style: solid;
     border-width: 1px;
     border-color: lightgray; 
-    margin-top: 30px;   
+    margin-top: 20px;   
 }
