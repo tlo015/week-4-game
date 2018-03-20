@@ -10,6 +10,8 @@
     <title>Pokemon Collector</title>
 </head>
 
+
+
 <body>
 
     <nav class="navbar" id="masthead">
@@ -21,7 +23,7 @@
         
     <div class="container">
         <a class="navbar-brand" id="pokemon">
-            <img src="assets/images/title2.png">
+            <img src="assets/images/title.png">
         </a>
     
     </div>
@@ -39,15 +41,15 @@
             </div>
             </section>
 
-            <sideBar class="col-md-6" id="side-bar">
+            <sideBar class="col-sm-12 col-md-6" id="side-bar">
                 <div class="row" id="number-row">
-                    <div class="randomNum col-md-6">
+                    <div class="randomNum col-sm-6 col-md-6">
                     <div id="counter-border">
                         Number to Match: <br>
                         <span id="randomNum"></span>
                     </div>
                     </div>                
-                    <div class="clickTotal col-md-6">
+                    <div class="clickTotal col-sm-6 col-md-6">
                     <div id="counter-border">
                         Total: <br>
                         <span id="clickTotal">0</span>
@@ -56,26 +58,28 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12" id="win-or-lose">
-                        <span id="win-lose"> </span>
+                    <div class="col-sm- 12 col-md-12" id="win-or-lose">
+                    <div id="counter-border">
+                        <span id="win-lose"> &nbsp;</span>
+                    </div>
                     </div>
                 </div> 
 
                 <div class="row" id="pokemonImage">
-                        <img class="col-md-3 green" src="assets/images/green.png">
-                        <img class="col-md-3 red" src="assets/images/red.png">
-                        <img class="col-md-3 blue" src="assets/images/blue.png">
-                        <img class="col-md-3 yellow" src="assets/images/yellow.png">
+                        <img class="col-sm-3 col-md-3 green" src="assets/images/green.png">
+                        <img class="col-sm-3 col-md-3 red" src="assets/images/red.png">
+                        <img class="col-sm-3 col-md-3 blue" src="assets/images/blue.png">
+                        <img class="col-sm-3 col-md-3 yellow" src="assets/images/yellow.png">
                 </div>
 
                 <div class="row" id="scoreCount">
-                    <div class="winCount col-md-6">
+                    <div class="winCount col-sm-6 col-md-6">
                     <div id="score-border">
                         Wins: <br>
                         <span id="wins"></span>
                     </div>
                     </div>
-                    <div class="lossCount col-md-6">
+                    <div class="lossCount col-sm-6 col-md-6">
                     <div id="score-border">
                         Losses: <br>                   
                         <span id ="losses"></span>
@@ -85,10 +89,11 @@
             </sideBar>
     </div>
     </div>
+    <br>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+<script type="text/javascript" src="assets/javascript/games.js"></script>
 
 </body>
 </html>
