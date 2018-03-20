@@ -1,4 +1,4 @@
-    //initialise game stats
+ //initialise game stats
     //counter to keep track of the clicked numbers #clickTotal
     //generate random number between 19-120, print to html  
     var imgValue = []; 
@@ -28,6 +28,7 @@
     //if score = random number wins #wins
     //else losses #losses
     $(".green").on("click", function() {
+        resetWinLose();
             console.log ("Green click: ", imgValue[0]);
         counter = counter + imgValue[0];
             console.log(counter);
@@ -40,6 +41,7 @@
     });
     
     $(".red").on("click", function() {
+        resetWinLose();
             console.log ("Red click: ",imgValue[1]);
         counter = counter + imgValue[1];
             console.log(counter);
@@ -52,6 +54,7 @@
     });  
     
     $(".blue").on("click", function() {
+        resetWinLose();
             console.log ("Blue click: ",imgValue[2]);
         counter = counter + imgValue[2];
         $("#clickTotal").text(counter);
@@ -63,6 +66,7 @@
     });    
     
     $(".yellow").on("click", function() {
+        resetWinLose();
             console.log ("Yellow click: ",imgValue[3]);
         counter = counter + imgValue[3];
         $("#clickTotal").text(counter);
@@ -74,13 +78,14 @@
     });
     
     function youWon(){
-        alert ("You Win!!")
+        $("#win-lose").text("You Win!!")
         winsCount++;
         $("#wins").text(winsCount);
         reset();
     }
+
     function youLose(){
-        alert ("You Lose!!")
+        $("#win-lose").text("You Lose!!")
         lossesCount++;
         $("#losses").text(lossesCount);
         reset();
@@ -94,5 +99,8 @@
             randomPkmnNum();
             counter = 0;
             $("#clickTotal").text(counter);
-            $("#winOrLose").text("");
+        }
+
+        function resetWinLose() {
+            $("#win-lose").text(" ");
         }
