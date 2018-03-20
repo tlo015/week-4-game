@@ -1,37 +1,106 @@
-
-
-//generate random number between 19-120, print to html
-var random = (Math.floor(Math.random() * 111)+19);
-    console.log ("display num: ", random);
-    $("#randomNum").text(random);
-
+//initialise game stats
 //counter to keep track of the clicked numbers #clickTotal
-var counter = 0;
+    //generate random number between 19-120, print to html  
+    var imgValue = []; 
+    var counter = 0;
+    var winsCount = 0  
+    var lossesCount = 0
+    $("#randomNum").text(counter);
+    $("#wins").text(winsCount);
+    $("#losses").text(lossesCount);
+    var random = (Math.floor(Math.random() * 102) +19);
+        console.log ("display num: ", random); 
+    $("#randomNum").text(random);
+    
+    //assign each img with a hidden number between 1-12
+    function randomPkmnNum() {
+        for (var i=0; i<4; i++) {
+            var num = (Math.floor(Math.random() *11) +1);
+            imgValue.push(num);
+        }
+        console.log (imgValue);
+    }
+    randomPkmnNum();
 
-//assign each img with a hidden number between 1-12
-var redGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Red gem: ", redGem);
-var blueGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Blue gem: ", blueGem);
-var yellowGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Yellow gem: ", yellowGem);
-var greenGem = (Math.floor(Math.random() * 12)+1);
-    console.log ("Green gem: ", greenGem);
+    //'click' event listener on images #pokemonImage
+    //upon click print value to screen
+    //upon additional clicks, add values together
+    //if score = random number wins #wins
+    //else losses #losses
+    $(".green").on("click", function() {
+        resetWinLose();
+            console.log ("Green click: ", imgValue[0]);
+        counter = counter + imgValue[0];
+            console.log(counter);
+        $("#clickTotal").text(counter);
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
+    });
+    
+    $(".red").on("click", function() {
+        resetWinLose();
+            console.log ("Red click: ",imgValue[1]);
+        counter = counter + imgValue[1];
+            console.log(counter);
+        $("#clickTotal").text(counter);  
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
+    });  
+    
+    $(".blue").on("click", function() {
+        resetWinLose();
+            console.log ("Blue click: ",imgValue[2]);
+        counter = counter + imgValue[2];
+        $("#clickTotal").text(counter);
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
+    });    
+    
+    $(".yellow").on("click", function() {
+        resetWinLose();
+            console.log ("Yellow click: ",imgValue[3]);
+        counter = counter + imgValue[3];
+        $("#clickTotal").text(counter);
+        if (counter == random){
+                youWon();
+            } else if (counter > random){
+                youLose();
+            }
+    });
+    
+    function youWon(){
+        $("#win-lose").text("You Win!!")
+        winsCount++;
+        $("#wins").text(winsCount);
+        reset();
+    }
 
-//generate img as buttons for 'click' event listener
-$("#gemImage").on("click", "red", function() {
-    redGem = parseInt(redGem);
-    alert (redGem);
-});
+    function youLose(){
+        $("#win-lose").text("You Lose!!")
+        lossesCount++;
+        $("#losses").text(lossesCount);
+        reset();
+    }
 
-//upon click print value to screen
+    //reset
+        function reset() {
+            random = (Math.floor(Math.random() * 102) +19);
+                $("#randomNum").text(random);
+            imgValue= [];
+            randomPkmnNum();
+            counter = 0;
+            $("#clickTotal").text(counter);
+        }
 
-//upon additional clicks, add values together
-
-//if score = random number wins
-
-//else losses
-
-//restart game with ne random numbers and hidden numbers
-
- 
+        function resetWinLose() {
+            $("#win-lose").html('&nbsp;');
+        }
