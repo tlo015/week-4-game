@@ -102,5 +102,5 @@
         }
 
         function resetWinLose() {
-            $("#win-lose").text(" ");
+            $("#win-lose").html('&nbsp;');
         }
