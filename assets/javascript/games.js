@@ -1,5 +1,5 @@
 var $myAudio = ("#audioContent")
-var isPlaying = false;
+var isPlaying = true;
 
 function togglePlay() {
   if (isPlaying) {
