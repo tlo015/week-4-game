@@ -2,14 +2,6 @@
     box-sizing: border-box;
 }
 
-/* .pikachu{
-    position: fixed;
-    bottom: 0px;
-    z-index: -1;
-    width: 15%;
-    height: auto;
-} */
-
 /* Navigation */
 .navbar{
     position: relative;
@@ -17,7 +9,7 @@
 
 #masthead{
     position: relative;
-    padding: 30px 0px 40px 0px;
+    padding: 30px 0px 30px 0px;
     background-color: red;
     border-bottom-style: solid;
     border-bottom-width: 20px;
@@ -29,14 +21,14 @@
 }
 
 .img-size{
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
 }
 
 .pokeball{
     position: absolute;
     left: 50%;
-    bottom: -50px;
+    bottom: -55px;
 }
 
 .pokeball .wrapper{
@@ -50,12 +42,12 @@
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 /* Side Bar */
 #side-bar{
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 #counter-border{
