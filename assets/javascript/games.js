@@ -1,10 +1,27 @@
+var $myAudio = ("#audioContent")
+var isPlaying = false;
+
+function togglePlay() {
+  if (isPlaying) {
+    audioContent.pause()
+  } else {
+    audioContent.play();
+  }
+};
+audioContent.onplaying = function() {
+  isPlaying = true;
+};
+audioContent.onpause = function() {
+  isPlaying = false;
+};
 //initialise game stats
 //counter to keep track of the clicked numbers #clickTotal
     //generate random number between 19-120, print to html  
     var imgValue = []; 
     var counter = 0;
-    var winsCount = 0  
-    var lossesCount = 0
+    var winsCount = 0;  
+    var lossesCount = 0;
+
     $("#randomNum").text(counter);
     $("#wins").text(winsCount);
     $("#losses").text(lossesCount);
@@ -104,3 +121,6 @@
         function resetWinLose() {
             $("#win-lose").html('&nbsp;');
         }
+
+
+
